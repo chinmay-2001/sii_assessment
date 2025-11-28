@@ -11,10 +11,10 @@ import {
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { PermissionGuard } from 'src/permission/permission.guard';
-import { Permission } from 'src/permission/permission.decorator';
+import { PermissionGuard } from '../permission/permission.guard';
+import { Permission } from '../permission/permission.decorator';
 
-@Controller('user')
+@Controller('users')
 @UseGuards(PermissionGuard)
 export class UserController {
   constructor(private readonly userService: UserService) {}
@@ -22,7 +22,6 @@ export class UserController {
   @Post()
   @Permission('CREATE')
   create(@Body() createUserDto: CreateUserDto) {
-    console.log('CreateUserDto:', createUserDto);
     return this.userService.create(createUserDto);
   }
 

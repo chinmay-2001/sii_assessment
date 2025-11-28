@@ -3,7 +3,7 @@ export const USERS = [
   {
     id: 1,
     name: 'John Doe',
-    roles: ['ADMIN', 'PERSONAL'],
+    roles: ['ADMIN'],
     groups: ['GROUP_1', 'GROUP_2'],
   },
   {

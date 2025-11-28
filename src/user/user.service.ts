@@ -30,10 +30,17 @@ export class UserService {
     const removed = this.users.splice(idx, 1)[0];
     return removed;
   }
+
   findManagedUsers(id: number) {
     const manager = this.users.find((u) => u.id === id);
-    if (!manager) throw new NotFoundException('Manager not found');
-    if (!manager.roles.includes('ADMIN')) return [];
+    // If user does not exist → throw
+    if (!manager) {
+      throw new NotFoundException('Manager not found');
+    }
+    // If user exists but is NOT admin → return empty array
+    if (!manager.roles.includes('ADMIN')) {
+      return [];
+    }
     const managerGroups = new Set(manager.groups);
     return this.users.filter(
       (u) => u.id !== id && u.groups.some((g) => managerGroups.has(g)),

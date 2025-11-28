@@ -55,19 +55,11 @@ export class PermissionGuard implements CanActivate {
     }
 
     // Collect permissions from ALL ROLES of the user
-    console.log(this.rolePermissions);
     const userPermissions = new Set<string>();
     for (const role of user.roles) {
       const perms = this.rolePermissions[role] || [];
       perms.forEach((p) => userPermissions.add(p));
     }
-
-    console.log(
-      'User Permissions:',
-      Array.from(userPermissions),
-      'Required Permission:',
-      requiredPermission,
-    );
 
     // Check if the required permission is allowed
     if (!userPermissions || !userPermissions.has(requiredPermission)) {
