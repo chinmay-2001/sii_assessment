@@ -39,4 +39,7 @@ export class UserService {
       (u) => u.id !== id && u.groups.some((g) => managerGroups.has(g)),
     );
   }
+  findOne(id: number) {
+    return this.users.find((u) => u.id === id);
+  }
 }

@@ -8,7 +8,9 @@ import {
   ArrayUnique,
   IsIn,
 } from 'class-validator';
-import { ROLES, GROUPS } from '../../data';
+import { MODIFIED_ROLES, GROUPS } from '../../data';
+
+const ROLE_CODES = MODIFIED_ROLES.map((r) => r.code);
 
 export class CreateUserDto {
   @IsString()
@@ -17,14 +19,14 @@ export class CreateUserDto {
   name: string;
 
   @IsArray()
-  @ArrayMinSize(1)
+  @ArrayMinSize(1, { message: 'roles must contain at least one item' })
   @ArrayUnique()
-  @IsIn(ROLES, { each: true })
+  @IsIn(ROLE_CODES, { each: true })
   roles: string[];
 
   @IsArray()
   @ArrayNotEmpty()
-  @ArrayMinSize(1)
+  @ArrayMinSize(1, { message: 'groups must contain at least one item' })
   @ArrayUnique()
   @IsIn(GROUPS, { each: true })
   groups: string[];

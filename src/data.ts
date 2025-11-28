@@ -33,8 +33,13 @@ export const USERS = [
   },
 ];
 
-export const GROUPS = ['GROUP_1', 'GROUP_2'];
-export const ROLES = ['ADMIN', 'PERSONAL', 'VIEWER']; // include VIEWER for bonus
+export type RoleCode = 'ADMIN' | 'PERSONAL' | 'VIEWER';
+
+export const ROLES: RoleCode[] = ['ADMIN', 'PERSONAL', 'VIEWER'];
+
+export type GroupCode = 'GROUP_1' | 'GROUP_2';
+
+export const GROUPS: GroupCode[] = ['GROUP_1', 'GROUP_2'];
 
 export const PERMISSIONS = ['CREATE', 'VIEW', 'EDIT', 'DELETE'];
 
