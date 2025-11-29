@@ -1,5 +1,7 @@
 # User Management API — NestJS
 
+GitHub Repository: https://github.com/chinmay-2001/sii_assessment
+
 A scalable NestJS backend implementing user CRUD, role-based permissions, group-based user management, DTO validation, and Swagger documentation.
 
 ## Features
@@ -18,7 +20,7 @@ src/
 
 - app.module.ts
 - main.ts
-- data/data.ts
+- data.ts
 - user/
   - user.controller.ts
   - user.service.ts
@@ -28,7 +30,7 @@ src/
 - permission/
   - permission.guard.ts
   - permission.decorator.ts
-- common/exceptions/permission-denied.exception.ts
+- custom-exceptions/permission-denied.exception.ts
 - tests/
 
 ## Requirements
