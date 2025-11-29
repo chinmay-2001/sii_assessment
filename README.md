@@ -24,6 +24,8 @@ src/
 - user/
   - user.controller.ts
   - user.service.ts
+  - entities
+    - user.entity.ts
   - dto/
     - create-user.dto.ts
     - update-user.dto.ts
